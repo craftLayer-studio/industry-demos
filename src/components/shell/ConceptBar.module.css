@@ -1,0 +1,29 @@
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  padding: 8px clamp(16px, 4vw, 40px);
+  background: #101828;
+  color: #e4e7ec;
+  font: 500 13px/1.4 ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+.badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #8bddc0;
+  color: #101828;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+.text {
+  flex: 1 1 260px;
+}
+.text a,
+.back {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
