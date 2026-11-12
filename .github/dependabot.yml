@@ -1,0 +1,26 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    # Respect pnpm's minimum release age: give new releases time to settle.
+    cooldown:
+      default-days: 3
+    groups:
+      next-react:
+        patterns: [next, eslint-config-next, react, react-dom, '@types/react', '@types/react-dom']
+      astryx:
+        patterns: ['@astryxdesign/*']
+      dev-tooling:
+        dependency-type: development
+        update-types: [minor, patch]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ['*']

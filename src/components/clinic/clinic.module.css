@@ -1,0 +1,329 @@
+/* Northstar Clinic layout helpers. Colours, radii, spacing and type all come
+   from the northstar Astryx theme tokens; this file only handles page-level
+   layout that has no component prop. */
+
+.root {
+  min-height: 100vh;
+  background: var(--color-background-body);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-body);
+  overflow-x: clip;
+}
+
+.skipLink {
+  position: absolute;
+  inset-inline-start: var(--spacing-4);
+  inset-block-start: var(--spacing-2);
+  z-index: 100;
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--radius-element);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-weight: 600;
+  transform: translateY(-200%);
+}
+.skipLink:focus {
+  transform: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 76rem;
+  margin-inline: auto;
+  padding-inline: clamp(var(--spacing-4), 4vw, var(--spacing-10));
+}
+
+.section {
+  padding-block: clamp(var(--spacing-12), 8vw, calc(var(--spacing-12) * 2));
+  scroll-margin-top: calc(var(--spacing-12) + var(--spacing-6));
+}
+
+.sectionTinted {
+  background: var(--color-background-surface);
+  border-block: 1px solid var(--color-border);
+}
+
+/* Header */
+.header {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--color-background-body) 88%, transparent);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-block-end: 1px solid var(--color-border);
+}
+.headerInner {
+  min-height: calc(var(--spacing-12) + var(--spacing-4));
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  font-size: var(--font-size-lg);
+  letter-spacing: -0.01em;
+  border-radius: var(--radius-inner);
+}
+.brandMark {
+  display: inline-grid;
+  place-items: center;
+  width: var(--spacing-9);
+  height: var(--spacing-9);
+  border-radius: var(--radius-element);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+.brandMark svg {
+  width: var(--spacing-6);
+  height: var(--spacing-6);
+}
+.nav {
+  display: none;
+}
+@media (min-width: 960px) {
+  .nav {
+    display: flex;
+  }
+}
+.navList {
+  display: flex;
+  gap: var(--spacing-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero */
+.hero {
+  padding-block: clamp(var(--spacing-10), 6vw, calc(var(--spacing-12) * 1.75));
+  background:
+    radial-gradient(60rem 30rem at 85% -10%, var(--northstar-sky), transparent 60%),
+    radial-gradient(40rem 26rem at 0% 110%, var(--northstar-seaglass), transparent 65%),
+    var(--color-background-body);
+}
+.heroGrid {
+  display: grid;
+  gap: clamp(var(--spacing-8), 5vw, var(--spacing-12));
+  align-items: center;
+}
+@media (min-width: 960px) {
+  .heroGrid {
+    grid-template-columns: 1.05fr 1fr;
+  }
+}
+.heroTitle {
+  font-size: clamp(2.25rem, 1.4rem + 3.4vw, 3.75rem);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  max-width: 16ch;
+}
+.heroArt {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.factList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3) var(--spacing-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.factList li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  color: var(--color-text-secondary);
+}
+.factList svg {
+  width: var(--spacing-5);
+  height: var(--spacing-5);
+  color: var(--color-icon-accent);
+  flex: none;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  align-self: flex-start;
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-full);
+  background: var(--color-accent-muted);
+  color: var(--color-text-accent);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}
+
+.sectionLead {
+  max-width: 42rem;
+}
+
+.iconTile {
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: var(--spacing-11);
+  height: var(--spacing-11);
+  border-radius: var(--radius-element);
+  background: var(--color-accent-muted);
+  color: var(--color-text-accent);
+}
+.iconTile svg {
+  width: var(--spacing-6);
+  height: var(--spacing-6);
+}
+.iconInline {
+  width: var(--spacing-5);
+  height: var(--spacing-5);
+  color: var(--color-icon-accent);
+  flex: none;
+}
+
+.fullHeight {
+  height: 100%;
+}
+
+.plainList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Booking */
+.bookingShell {
+  scroll-margin-top: calc(var(--spacing-12) + var(--spacing-6));
+}
+.stepHeading {
+  scroll-margin-top: calc(var(--spacing-12) * 2.5);
+}
+.stepHeading:focus {
+  outline: none;
+}
+.stepHeading:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+  border-radius: var(--radius-inner);
+}
+.fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.legend {
+  padding: 0;
+  margin-block-end: var(--spacing-3);
+  font-weight: 600;
+}
+.calendarWrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.dateRow {
+  display: grid;
+  gap: var(--spacing-8);
+  align-items: start;
+}
+@media (min-width: 820px) {
+  .dateRow {
+    grid-template-columns: minmax(0, 24rem) 1fr;
+  }
+}
+
+/* Map */
+.map {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-container);
+  border: 1px solid var(--color-border);
+}
+.mapLand { fill: var(--northstar-map-land); }
+.mapBlock { fill: var(--northstar-map-block); }
+.mapRoad { stroke: var(--northstar-map-road); fill: none; stroke-linecap: round; }
+.mapWater { fill: var(--northstar-map-water); }
+.mapPark { fill: var(--northstar-map-park); }
+.mapLabel {
+  fill: var(--color-text-secondary);
+  font-family: var(--font-family-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.mapPin { fill: var(--color-accent); }
+.mapPinMark { fill: var(--color-on-accent); }
+.mapPinLabel {
+  fill: var(--color-text-primary);
+  font-family: var(--font-family-heading);
+  font-size: 15px;
+  font-weight: 700;
+}
+.mapCard { fill: var(--color-background-card); stroke: var(--color-border); }
+
+/* Hero art */
+.artBackdrop { fill: var(--northstar-mist); }
+.artSeaglass { fill: var(--northstar-seaglass); }
+.artSeaglassStrong { fill: var(--northstar-seaglass-strong); }
+.artSky { fill: var(--northstar-sky); }
+.artSand { fill: var(--northstar-sand); }
+.artCoral { fill: var(--northstar-coral); }
+.artAccent { fill: var(--color-accent); }
+.artOnAccent { fill: var(--color-on-accent); }
+.artCard { fill: var(--color-background-card); }
+.artLine { stroke: var(--color-border); fill: none; }
+.artInk { fill: var(--northstar-ink); }
+.artText {
+  fill: var(--color-text-primary);
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+}
+.artSubtext {
+  fill: var(--color-text-secondary);
+  font-family: var(--font-family-body);
+}
+
+.footer {
+  background: var(--northstar-ink);
+  color: var(--color-background-body);
+  padding-block: var(--spacing-12);
+}
+.footer a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.footer a:focus-visible {
+  outline: 2px solid var(--northstar-seaglass-strong);
+  outline-offset: 3px;
+}
+.footerMuted {
+  color: var(--northstar-seaglass);
+}
+
+.sectionTitle {
+  font-size: clamp(1.75rem, 1.25rem + 1.6vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+.address {
+  font-style: normal;
+}
+.showSm {
+  display: inline-flex;
+}
+.hideSm {
+  display: none;
+}
+@media (min-width: 640px) {
+  .showSm {
+    display: none;
+  }
+  .hideSm {
+    display: inline-flex;
+  }
+}

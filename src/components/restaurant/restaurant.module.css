@@ -1,0 +1,788 @@
+/* Juniper Kitchen layout + editorial styling. Colours come from theme tokens only. */
+
+.root {
+  min-height: 100vh;
+  background: var(--juniper-cream);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-body);
+  overflow-x: clip;
+  --gutter: clamp(1rem, 4vw, 3.5rem);
+  --juniper-max: 76rem;
+}
+
+.root :where(a, button, input, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--juniper-terracotta);
+  outline-offset: 3px;
+}
+
+.root :where(main):focus {
+  outline: none;
+}
+
+.container {
+  width: 100%;
+  max-width: calc(var(--juniper-max) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.eyebrow,
+.eyebrowLight {
+  font-family: var(--font-family-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--juniper-terracotta);
+}
+
+.eyebrowLight {
+  color: var(--juniper-butter);
+}
+
+.sectionTitle {
+  font-family: var(--font-family-heading);
+  font-size: clamp(2.2rem, 1.6rem + 2.6vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+
+.sectionLede {
+  max-width: 38rem;
+  line-height: 1.6;
+}
+
+.smallTitle {
+  font-family: var(--font-family-heading);
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--juniper-cream) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--juniper-rule);
+}
+
+.headerInner {
+  max-width: calc(var(--juniper-max) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding: var(--spacing-3) var(--gutter);
+  row-gap: var(--spacing-2);
+}
+
+.skip {
+  position: absolute;
+  left: var(--spacing-3);
+  z-index: 30;
+  padding: var(--spacing-2) var(--spacing-4);
+  background: var(--juniper-forest);
+  color: var(--juniper-on-forest);
+  border-radius: var(--radius-element);
+  top: -10rem;
+}
+
+.skip:focus {
+  top: var(--spacing-2);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  color: var(--juniper-forest);
+  text-decoration: none;
+}
+
+.wordmarkMain {
+  font-family: var(--font-family-heading);
+  font-size: 1.85rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.wordmarkSub {
+  font-family: var(--font-family-heading);
+  font-style: italic;
+  font-size: 1.35rem;
+  color: var(--juniper-terracotta);
+}
+
+.nav {
+  order: 3;
+  flex-basis: 100%;
+}
+
+.navList {
+  display: flex;
+  gap: var(--spacing-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navLink {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+@media (min-width: 48rem) {
+  .nav {
+    order: 0;
+    flex-basis: auto;
+    margin-inline: auto;
+  }
+  .navList {
+    gap: var(--spacing-8);
+  }
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  display: grid;
+  gap: var(--spacing-8);
+  align-items: center;
+  max-width: calc(var(--juniper-max) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding: clamp(2.5rem, 6vw, 5rem) var(--gutter) clamp(3rem, 7vw, 6rem);
+  scroll-margin-top: 6rem;
+}
+
+@media (min-width: 60rem) {
+  .hero {
+    grid-template-columns: 1.15fr 1fr;
+    gap: var(--spacing-12);
+  }
+}
+
+.heroCopy {
+  max-width: 36rem;
+}
+
+.heroTitle {
+  font-family: var(--font-family-heading);
+  font-size: clamp(3.4rem, 2rem + 6.5vw, 7.4rem);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: var(--juniper-forest);
+}
+
+.heroTitle em {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--juniper-terracotta);
+  padding-left: 0.6em;
+}
+
+.lede {
+  font-size: clamp(1.05rem, 1rem + 0.3vw, 1.2rem);
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+}
+
+.heroFacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2) var(--spacing-5);
+  margin: var(--spacing-2) 0 0;
+  padding: var(--spacing-4) 0 0;
+  border-top: 1px solid var(--juniper-rule);
+  list-style: none;
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+}
+
+.heroFacts li::before {
+  content: '';
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-right: 0.55rem;
+  border-radius: 50%;
+  background: var(--juniper-olive);
+  vertical-align: middle;
+}
+
+.heroArt {
+  margin: 0;
+  justify-self: center;
+  width: min(100%, 30rem);
+  filter: drop-shadow(0 1.5rem 2.5rem color-mix(in srgb, var(--juniper-forest-deep) 22%, transparent));
+}
+
+/* ---------- Story ---------- */
+
+.story {
+  background: var(--juniper-forest);
+  color: var(--juniper-on-forest);
+  padding-block: clamp(4rem, 9vw, 7.5rem);
+  scroll-margin-top: 6.5rem;
+}
+
+.storyIntro {
+  max-width: 50rem;
+}
+
+.storyTitle {
+  font-family: var(--font-family-heading);
+  font-size: clamp(2rem, 1.4rem + 2.8vw, 3.5rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.08;
+  color: var(--juniper-on-forest);
+}
+
+.storyText {
+  color: color-mix(in srgb, var(--juniper-on-forest) 82%, transparent);
+  line-height: 1.7;
+  max-width: 42rem;
+}
+
+.pillars {
+  display: grid;
+  gap: var(--spacing-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 48rem) {
+  .pillars {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-8);
+  }
+}
+
+.pillar {
+  padding-top: var(--spacing-5);
+  border-top: 1px solid color-mix(in srgb, var(--juniper-on-forest) 28%, transparent);
+}
+
+.pillarIcon {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--juniper-butter);
+}
+
+.pillarTitle {
+  margin-block: var(--spacing-3) var(--spacing-2);
+  font-family: var(--font-family-heading);
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: var(--juniper-on-forest);
+}
+
+.pillarText {
+  color: color-mix(in srgb, var(--juniper-on-forest) 78%, transparent);
+  line-height: 1.6;
+}
+
+/* ---------- Menu ---------- */
+
+.menuSection {
+  padding-block: clamp(4rem, 8vw, 7rem);
+  scroll-margin-top: 6.5rem;
+}
+
+.menuIntro {
+  max-width: 40rem;
+}
+
+.filters {
+  padding: var(--spacing-5);
+  background: var(--juniper-paper);
+  border: 1px solid var(--juniper-rule);
+  border-radius: var(--radius-container);
+  min-width: 0;
+}
+
+.search {
+  flex: 1 1 16rem;
+  max-width: 24rem;
+}
+
+.menuPanel {
+  min-width: 0;
+}
+
+.groupTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--juniper-forest);
+}
+
+.groupTitle::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--juniper-rule);
+}
+
+.dishGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+  gap: var(--spacing-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dishGrid > li {
+  display: flex;
+}
+
+.dishCard {
+  width: 100%;
+  border: 1px solid var(--juniper-rule);
+  transition: border-color var(--duration-fast) var(--ease-standard), transform var(--duration-fast) var(--ease-standard);
+}
+
+.dishCard:hover {
+  border-color: color-mix(in srgb, var(--juniper-olive) 60%, transparent);
+}
+
+.dishInner {
+  height: 100%;
+}
+
+.dishHead {
+  min-width: 0;
+}
+
+.dishName {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.1;
+  min-width: 0;
+}
+
+.dishLeader {
+  flex: 1;
+  min-width: 1rem;
+  align-self: center;
+  margin-top: 0.5rem;
+  border-bottom: 1px dotted color-mix(in srgb, var(--juniper-ink) 35%, transparent);
+}
+
+.dishPrice {
+  font-family: var(--font-family-heading);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--juniper-terracotta);
+  white-space: nowrap;
+}
+
+.dishDesc {
+  line-height: 1.55;
+}
+
+.dishNote {
+  font-family: var(--font-family-heading);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--juniper-olive);
+}
+
+.dishFoot {
+  margin-top: auto;
+  padding-top: var(--spacing-2);
+}
+
+.dishTags {
+  min-height: 1.5rem;
+}
+
+.resultCount {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+}
+
+.qty {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+
+/* ---------- Cart drawer ---------- */
+
+.cartList,
+.receipt {
+  display: grid;
+  gap: var(--spacing-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cartLine {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-2);
+  padding-bottom: var(--spacing-3);
+  border-bottom: 1px solid var(--juniper-rule);
+}
+
+.cartLineText {
+  min-width: 0;
+  flex: 1 1 10rem;
+}
+
+.qtyValue {
+  min-width: 1.5rem;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.totals {
+  display: grid;
+  gap: var(--spacing-2);
+  margin: 0;
+}
+
+.totals > div,
+.receipt > li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  font-variant-numeric: tabular-nums;
+}
+
+.totals dt {
+  color: var(--color-text-secondary);
+}
+
+.totals dd {
+  margin: 0;
+}
+
+.totalRow {
+  padding-top: var(--spacing-2);
+  border-top: 1px solid var(--juniper-rule);
+  font-weight: 600;
+}
+
+.totalRow dt {
+  color: var(--color-text-primary);
+}
+
+/* ---------- Reservation ---------- */
+
+.reserve {
+  background: var(--juniper-linen);
+  padding-block: clamp(4rem, 8vw, 7rem);
+  scroll-margin-top: 6.5rem;
+}
+
+.reserveGrid {
+  display: grid;
+  gap: var(--spacing-8);
+  align-items: start;
+}
+
+@media (min-width: 62rem) {
+  .reserveGrid {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: var(--spacing-12);
+  }
+}
+
+.reserveIntro {
+  min-width: 0;
+}
+
+.reserveCard {
+  min-width: 0;
+  border: 1px solid var(--juniper-rule);
+  box-shadow: 0 1.5rem 3rem color-mix(in srgb, var(--juniper-forest-deep) 10%, transparent);
+}
+
+.formRow,
+.formRow2 {
+  display: grid;
+  gap: var(--spacing-4);
+}
+
+@media (min-width: 40rem) {
+  .formRow {
+    grid-template-columns: 1.4fr 1fr 0.8fr;
+  }
+  .formRow2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.formRow > *,
+.formRow2 > * {
+  min-width: 0;
+}
+
+.hoursCompact,
+.summary {
+  display: grid;
+  gap: var(--spacing-2);
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+.hoursCompact > div,
+.summary > div {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  gap: var(--spacing-3);
+  padding-bottom: var(--spacing-2);
+  border-bottom: 1px solid var(--juniper-rule);
+}
+
+.hoursCompact dt,
+.summary dt {
+  font-weight: 600;
+}
+
+.hoursCompact dd,
+.summary dd {
+  margin: 0;
+  color: var(--color-text-secondary);
+  overflow-wrap: anywhere;
+}
+
+.confirmTitle {
+  font-family: var(--font-family-heading);
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--juniper-forest);
+}
+
+/* ---------- Gallery ---------- */
+
+.gallerySection {
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+.gallery {
+  display: grid;
+  gap: var(--spacing-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 56rem) {
+  .gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.galleryWide {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 56rem) {
+  .galleryWide {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+.galleryItem {
+  min-width: 0;
+}
+
+.galleryFigure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  height: 100%;
+  margin: 0;
+}
+
+.galleryArt {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-container);
+}
+
+.galleryWide .galleryArt {
+  aspect-ratio: 3 / 2;
+}
+
+@media (min-width: 56rem) {
+  .galleryWide .galleryArt {
+    flex: 1;
+    aspect-ratio: auto;
+    min-height: 0;
+  }
+}
+
+.galleryCaption {
+  font-family: var(--font-family-heading);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--color-text-secondary);
+}
+
+/* ---------- Visit ---------- */
+
+.visit {
+  padding-block: clamp(4rem, 8vw, 7rem);
+  border-top: 1px solid var(--juniper-rule);
+  scroll-margin-top: 6.5rem;
+}
+
+.visitGrid {
+  display: grid;
+  gap: var(--spacing-8);
+  align-items: start;
+}
+
+@media (min-width: 56rem) {
+  .visitGrid {
+    grid-template-columns: 1fr 1.3fr;
+    gap: var(--spacing-12);
+  }
+}
+
+.visitInfo {
+  min-width: 0;
+}
+
+.hours {
+  display: grid;
+  margin: 0;
+}
+
+.hoursRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--spacing-1) var(--spacing-4);
+  padding-block: var(--spacing-3);
+  border-bottom: 1px solid var(--juniper-rule);
+}
+
+.hoursRow dt {
+  font-weight: 600;
+}
+
+.hoursRow dd {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.address {
+  display: grid;
+  gap: var(--spacing-3);
+  font-style: normal;
+}
+
+.contactIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--juniper-terracotta);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.mapFigure {
+  display: grid;
+  gap: var(--spacing-2);
+  margin: 0;
+  min-width: 0;
+}
+
+.map {
+  border-radius: var(--radius-container);
+  border: 1px solid var(--juniper-rule);
+}
+
+.mapLabel,
+.mapLabelLight,
+.mapPinLabel {
+  font-family: var(--font-family-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  fill: var(--juniper-ink);
+}
+
+.mapLabelLight {
+  fill: var(--juniper-cream);
+}
+
+.mapPinLabel {
+  fill: var(--juniper-on-forest);
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  background: var(--juniper-forest-deep);
+  color: var(--juniper-on-forest);
+  padding-block: var(--spacing-12) var(--spacing-8);
+}
+
+.footerMark {
+  font-family: var(--font-family-heading);
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: var(--juniper-on-forest);
+}
+
+.footerMark em {
+  color: var(--juniper-clay);
+}
+
+.footerText {
+  color: color-mix(in srgb, var(--juniper-on-forest) 78%, transparent);
+  font-size: 0.92rem;
+}
+
+.footerNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footerNav a,
+.footerLink {
+  color: var(--juniper-on-forest);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footerRule {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-top: 1px solid color-mix(in srgb, var(--juniper-on-forest) 22%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dishCard {
+    transition: none;
+  }
+}

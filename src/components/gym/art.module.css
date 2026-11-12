@@ -1,0 +1,111 @@
+/* SVG paint for the Forge Fitness artwork. Colours come from the forge theme
+   tokens (accent = volt, text-primary = bone) plus a few art-only greys. */
+.logo,
+.heroArt,
+.portrait,
+.gallery,
+.map {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  --art-ink: var(--color-background-body);
+  --art-bone: var(--color-text-primary);
+  --art-steel: color-mix(in oklab, var(--color-text-primary) 22%, var(--color-background-body));
+  --art-steel-dark: color-mix(in oklab, var(--color-text-primary) 10%, var(--color-background-body));
+}
+.gallery,
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.fillAccent { fill: var(--color-accent); }
+.fillInk { fill: var(--art-ink); }
+.fillBone { fill: var(--art-bone); }
+.fillSteel { fill: var(--art-steel); }
+.fillSteelDark { fill: var(--art-steel-dark); }
+.fillWood { fill: color-mix(in oklab, var(--color-accent) 18%, var(--art-steel-dark)); }
+.fillTurf { fill: color-mix(in oklab, var(--color-accent) 22%, var(--art-ink)); }
+
+/* Hero */
+.strokeGrid { stroke: var(--color-border); stroke-width: 1; }
+.plateOuter { fill: var(--art-steel-dark); stroke: var(--art-bone); stroke-width: 2; }
+.plateRing { fill: none; stroke: var(--art-steel); stroke-width: 2; }
+.plateAccent { fill: none; stroke: var(--color-accent); stroke-width: 10; }
+.plateLabel {
+  fill: var(--art-bone);
+  font-family: var(--font-family-code);
+  font-size: 15px;
+  letter-spacing: 0.3em;
+}
+.figLabel {
+  fill: var(--color-text-secondary);
+  font-family: var(--font-family-code);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+
+/* Portraits */
+.portraitBg { fill: var(--art-steel-dark); }
+.tone1 .portraitBg { fill: color-mix(in oklab, var(--color-accent) 12%, var(--art-ink)); }
+.tone2 .portraitBg { fill: var(--art-steel); }
+.tone3 .portraitBg { fill: color-mix(in oklab, var(--art-bone) 6%, var(--art-ink)); }
+.monogram {
+  font-family: var(--font-family-heading);
+  font-size: 260px;
+  fill: none;
+  stroke: color-mix(in oklab, var(--art-bone) 30%, transparent);
+  stroke-width: 2;
+}
+.rimLight { stroke: var(--art-bone); stroke-width: 3; }
+.portraitFrame { stroke: var(--color-border); stroke-width: 2; }
+
+/* Gallery */
+.galleryBg { fill: var(--art-ink); }
+.rope { stroke: var(--art-bone); stroke-width: 4; fill: none; }
+.ropeAccent { stroke: var(--color-accent); stroke-width: 5; fill: none; }
+.ringOutline { fill: none; stroke: var(--color-accent); stroke-width: 3; }
+.laneLine { stroke: var(--art-bone); stroke-width: 3; }
+.laneDash { stroke: var(--art-bone); stroke-width: 2; stroke-dasharray: 10 10; }
+.laneNumber { font-family: var(--font-family-heading); font-size: 34px; fill: var(--art-bone); }
+.wave { fill: none; stroke: var(--art-steel); stroke-width: 2; }
+.waveAccent { fill: none; stroke: var(--color-accent); stroke-width: 4; }
+
+/* Map */
+.mapBg { fill: var(--art-steel-dark); }
+.mapBlocks rect { fill: color-mix(in oklab, var(--art-bone) 4%, var(--art-ink)); }
+.mapPark { fill: color-mix(in oklab, var(--color-accent) 16%, var(--art-ink)); }
+.mapRiver { fill: none; stroke: var(--art-steel); stroke-width: 26; }
+.mapMajor { stroke: var(--art-steel); stroke-width: 6; }
+.mapLabel {
+  font-family: var(--font-family-code);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  fill: var(--color-text-secondary);
+}
+.mapNote {
+  font-family: var(--font-family-code);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  fill: var(--color-text-secondary);
+}
+.mapPinLabel {
+  font-family: var(--font-family-heading);
+  font-size: 17px;
+  letter-spacing: 0.06em;
+  fill: var(--color-accent);
+}
+.mapStationText { font-family: var(--font-family-heading); font-size: 14px; fill: var(--art-ink); }
+.pinPulse {
+  fill: color-mix(in oklab, var(--color-accent) 18%, transparent);
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: pulse 2.4s ease-out infinite;
+}
+@keyframes pulse {
+  from { transform: scale(0.4); opacity: 1; }
+  to { transform: scale(1.2); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pinPulse { animation: none; }
+}

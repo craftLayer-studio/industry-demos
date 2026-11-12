@@ -1,0 +1,89 @@
+# Build, verify and deploy the static export to GitHub Pages: project Pages site (https://craftlayer-studio.github.io/industry-demos/).
+# Any failing check stops the run before the deploy job, so the live site stays unchanged.
+# Repository setting required: Settings > Pages > Source = GitHub Actions.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time; let an in-progress deployment finish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up pnpm
+        # Version comes from the packageManager field in package.json.
+        uses: pnpm/action-setup@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Test
+        run: pnpm test
+
+      - name: Build
+        # Webpack for parity with local builds (local glibc cannot load native SWC/Turbopack).
+        run: pnpm build
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+
+      - name: Verify export
+        # basePath only changes URLs; next export still writes to out/ root.
+        run: |
+          test -f out/index.html
+          test -f out/404.html
+          test -f out/gym/index.html
+          test -f out/restaurant/index.html
+          test -f out/clinic/index.html
+          test -f out/sitemap.xml
+          grep -q "/industry-demos/_next/static/" out/index.html
+
+      - name: Disable Jekyll
+        run: touch out/.nojekyll
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

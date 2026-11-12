@@ -1,0 +1,45 @@
+.forest { fill: var(--juniper-forest); }
+.deep { fill: var(--juniper-forest-deep); }
+.olive { fill: var(--juniper-olive); }
+.oliveSoft { fill: var(--juniper-olive-soft); }
+.terracotta { fill: var(--juniper-terracotta); }
+.clay { fill: var(--juniper-clay); }
+.butter { fill: var(--juniper-butter); }
+.cream { fill: var(--juniper-cream); }
+.paper { fill: var(--juniper-paper); }
+.linen { fill: var(--juniper-linen); }
+.ink { fill: var(--juniper-ink); }
+.none { fill: none; }
+
+.lineCream { fill: none; stroke: var(--juniper-cream); }
+.lineLinen { fill: none; stroke: var(--juniper-linen); }
+.lineOlive { fill: none; stroke: var(--juniper-olive); }
+.lineForest { fill: none; stroke: var(--juniper-forest); }
+.lineDeep { fill: none; stroke: var(--juniper-forest-deep); }
+.lineClay { fill: none; stroke: var(--juniper-clay); }
+.lineButter { fill: none; stroke: var(--juniper-butter); }
+.lineInk { fill: none; stroke: var(--juniper-ink); }
+
+.soft { opacity: 0.55; }
+.faint { opacity: 0.25; }
+
+.art {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.flicker {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: flicker 3.2s ease-in-out infinite alternate;
+}
+
+@keyframes flicker {
+  from { transform: scaleY(1); }
+  to { transform: scaleY(1.08) skewX(-2deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flicker { animation: none; }
+}
