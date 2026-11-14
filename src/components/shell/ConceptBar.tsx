@@ -8,7 +8,8 @@ import styles from './ConceptBar.module.css';
  */
 export function ConceptBar({brand}: {brand: string}) {
   return (
-    <div className={styles.bar} role="note" aria-label="Concept demo notice">
+    // A labelled <aside> is a landmark, so the notice is not orphaned content (axe "region").
+    <aside className={styles.bar} aria-label="Concept demo notice">
       <span className={styles.badge}>Concept demo</span>
       <span className={styles.text}>
         {brand} is a fictional brand designed and built by{' '}
@@ -17,6 +18,6 @@ export function ConceptBar({brand}: {brand: string}) {
       <Link href="/" className={styles.back}>
         All demos
       </Link>
-    </div>
+    </aside>
   );
 }

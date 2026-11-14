@@ -1,0 +1,773 @@
+/* Ashgrove Property page layout. Colours, radii and type come from the
+   ashgrove Astryx theme tokens; this file handles editorial layout,
+   illustration framing and a few typographic details with no component prop. */
+
+.root {
+  min-height: 100vh;
+  background: var(--color-background-body);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-body);
+  overflow-x: clip;
+}
+
+.skipLink {
+  position: absolute;
+  inset-inline-start: var(--spacing-4);
+  inset-block-start: var(--spacing-2);
+  z-index: 100;
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--radius-element);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-weight: 600;
+  transform: translateY(-200%);
+}
+.skipLink:focus {
+  transform: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 78rem;
+  margin-inline: auto;
+  padding-inline: clamp(var(--spacing-4), 4vw, var(--spacing-10));
+}
+
+/* Visible, warm focus ring for every custom focus target. */
+.root :focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+.root [tabindex='-1']:focus {
+  outline: none;
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding-block: clamp(3.5rem, 8vw, 7rem);
+  scroll-margin-top: 4.5rem;
+}
+.tone_paper {
+  background: var(--ashgrove-paper);
+  border-block: 1px solid var(--color-border);
+}
+.tone_stone {
+  background: var(--ashgrove-stone);
+}
+.tone_charcoal {
+  background: var(--color-background-body);
+  color: var(--color-text-primary);
+}
+.sectionLead {
+  max-width: 46rem;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-accent);
+}
+.eyebrow::before {
+  content: '';
+  width: 2rem;
+  height: 1px;
+  background: currentColor;
+}
+.sectionTitle {
+  font-size: clamp(2rem, 1.3rem + 2.6vw, 3.25rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+}
+.lead {
+  max-width: 40rem;
+}
+
+/* ---------- Header ---------- */
+.header {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--color-background-body) 90%, transparent);
+  backdrop-filter: saturate(1.2) blur(10px);
+  border-block-end: 1px solid var(--color-border);
+}
+.headerInner {
+  min-height: 4.25rem;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  color: var(--color-text-primary);
+  text-decoration: none;
+  border-radius: var(--radius-inner);
+}
+.brandMark {
+  width: 2rem;
+  height: 2rem;
+  color: var(--ashgrove-terracotta);
+  flex: none;
+}
+.brandText {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.brandName {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  letter-spacing: 0.01em;
+}
+.brandSub {
+  margin-top: 0.2rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+.nav {
+  display: none;
+}
+@media (min-width: 1040px) {
+  .nav {
+    display: block;
+  }
+}
+.navList {
+  display: flex;
+  gap: var(--spacing-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.navLink {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  padding-block: var(--spacing-2);
+  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-size: 0 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 200ms ease;
+}
+@media (hover: hover) {
+  .navLink:hover {
+    background-size: 100% 1px;
+  }
+}
+.showSm {
+  display: inline-flex;
+}
+.hideSm {
+  display: none;
+}
+@media (min-width: 640px) {
+  .showSm {
+    display: none;
+  }
+  .hideSm {
+    display: inline-flex;
+  }
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(3rem, 6vw, 5rem);
+  background:
+    linear-gradient(to bottom, transparent 62%, var(--ashgrove-stone) 62%),
+    var(--color-background-body);
+  scroll-margin-top: 4.5rem;
+}
+.heroGrid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: end;
+  margin-bottom: 0;
+}
+@media (min-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+}
+.heroCopy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  padding-bottom: clamp(3rem, 9vw, 8rem);
+}
+.heroTitle {
+  font-size: clamp(2.5rem, 1.2rem + 5vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+.heroTitle em {
+  font-style: normal;
+  color: var(--color-text-accent);
+}
+.heroLead {
+  max-width: 36rem;
+}
+.heroFigure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  justify-self: center;
+  width: min(100%, 20rem);
+}
+.heroFigure figcaption {
+  order: -1;
+  text-align: center;
+}
+@media (min-width: 900px) {
+  .heroFigure {
+    width: min(100%, 26rem);
+  }
+}
+.heroArch {
+  border-radius: 999px 999px 0 0;
+  overflow: hidden;
+  border: 1px solid var(--ashgrove-line);
+  box-shadow: 0 0 0 10px var(--color-background-body), 0 0 0 11px var(--ashgrove-rule);
+  aspect-ratio: 4 / 5;
+}
+.heroArt {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.heroFigure figcaption,
+.dialogFigure figcaption,
+.mapFigure figcaption {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* Search bar */
+.searchBar {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: var(--spacing-4);
+  padding: clamp(var(--spacing-4), 3vw, var(--spacing-6));
+  background: var(--color-background-card);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-accent);
+  border-radius: var(--radius-container);
+  box-shadow: 0 24px 48px -28px rgb(37 33 29 / 0.45);
+}
+.searchMode {
+  max-width: 16rem;
+}
+.searchFields {
+  display: grid;
+  gap: var(--spacing-4);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10.5rem), 1fr));
+  align-items: end;
+}
+.searchSubmit {
+  min-width: 0;
+}
+.searchNote {
+  margin: 0;
+}
+
+/* ---------- Listings ---------- */
+.resultBar {
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-4);
+}
+.resultCount {
+  margin: 0;
+  font-weight: 600;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.chips li {
+  padding: 0.2rem 0.65rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: var(--font-size-sm);
+  background: var(--color-background-card);
+}
+.sortField {
+  width: min(100%, 15rem);
+}
+.listingGrid {
+  display: grid;
+  gap: clamp(var(--spacing-4), 2.5vw, var(--spacing-8));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.listingGrid > li {
+  display: flex;
+}
+.listingCard {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+@media (hover: hover) {
+  .listingCard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 36px -24px rgb(37 33 29 / 0.55);
+  }
+}
+.listingArt {
+  position: relative;
+  border-bottom: 1px solid var(--color-border);
+}
+.propertyArt {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 400 / 260;
+}
+.listingTag {
+  position: absolute;
+  inset-block-start: var(--spacing-3);
+  inset-inline-start: var(--spacing-3);
+  padding: 0.2rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--ashgrove-charcoal);
+  color: #f6f1ea;
+  border-radius: var(--radius-inner);
+}
+.listingTagNew {
+  inset-inline-start: auto;
+  inset-inline-end: var(--spacing-3);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
+.listingBody {
+  padding: var(--spacing-5);
+}
+.listingPrice {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: 1.75rem;
+  line-height: 1.1;
+}
+.sampleNote {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+.listingTitle {
+  font-family: var(--font-family-body);
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+.listingFacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2) var(--spacing-5);
+  margin: 0;
+  padding: var(--spacing-3) 0 0;
+  list-style: none;
+  border-top: 1px solid var(--color-border);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+.listingFacts li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+.listingFacts svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--color-text-accent);
+}
+.emptyCard {
+  border: 1px dashed var(--ashgrove-rule);
+}
+.emptyIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--color-text-accent);
+}
+
+/* Listing dialog */
+.dialogHeader {
+  padding: var(--spacing-5) var(--spacing-6);
+  border-bottom: 1px solid var(--color-border);
+}
+.dialogBody {
+  padding: var(--spacing-6);
+}
+.dialogArt {
+  display: grid;
+  gap: var(--spacing-4);
+}
+@media (min-width: 720px) {
+  .dialogArt {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.dialogFigure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+.dialogFigure svg {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-element);
+}
+.floorPlan {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 112 / 88;
+}
+.dialogPrice {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: 2.25rem;
+  line-height: 1.05;
+}
+.dialogBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+.dialogHeading {
+  font-size: 1.375rem;
+}
+.featureList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: var(--spacing-2) var(--spacing-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.featureList li {
+  position: relative;
+  padding-inline-start: 1.25rem;
+}
+.featureList li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.6em;
+  width: 0.55rem;
+  height: 1px;
+  background: var(--color-accent);
+}
+.dialogFooter {
+  padding: var(--spacing-4) var(--spacing-6);
+  border-top: 1px solid var(--color-border);
+  background: var(--ashgrove-paper);
+}
+
+/* ---------- Mortgage ---------- */
+.mortgageGrid {
+  display: grid;
+  gap: var(--spacing-6);
+}
+@media (min-width: 900px) {
+  .mortgageGrid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+.mortgageInputs,
+.mortgageResult {
+  border: 1px solid var(--color-border);
+}
+.mortgageResult {
+  background: var(--ashgrove-limestone);
+}
+.mortgageFigure {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: clamp(2.5rem, 1.6rem + 3vw, 3.75rem);
+  line-height: 1;
+  color: var(--color-text-primary);
+  font-variant-numeric: tabular-nums;
+}
+.mortgagePer {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-md, 1rem);
+  color: var(--color-text-secondary);
+}
+.repayBar {
+  display: flex;
+  height: 0.75rem;
+  border-radius: 999px;
+  overflow: hidden;
+  background: var(--ashgrove-ochre);
+}
+.repayPrincipal {
+  background: var(--ashgrove-charcoal);
+  transition: width 300ms ease;
+}
+.repayInterest {
+  flex: 1;
+}
+.repayLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2) var(--spacing-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--font-size-sm);
+}
+.repayLegend li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+.swatchPrincipal,
+.swatchInterest {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 2px;
+  background: var(--ashgrove-charcoal);
+}
+.swatchInterest {
+  background: var(--ashgrove-ochre);
+}
+
+/* Slider mark labels sit below the track; keep them clear of the next field. */
+.sliderField {
+  padding-bottom: var(--spacing-4);
+}
+
+/* ---------- Selling steps (charcoal band) ---------- */
+.steps {
+  display: grid;
+  gap: var(--spacing-8) var(--spacing-6);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12.5rem), 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+  padding-top: var(--spacing-4);
+  border-top: 1px solid var(--color-border);
+}
+.stepNumber {
+  font-family: var(--font-family-heading);
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--color-text-accent);
+}
+.stepTitle {
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-weight: 400;
+  font-size: 1.375rem;
+  line-height: 1.2;
+}
+
+/* ---------- Area guide ---------- */
+.areaPanel {
+  display: grid;
+  gap: clamp(var(--spacing-6), 4vw, var(--spacing-10));
+  align-items: center;
+  border-radius: var(--radius-container);
+}
+.areaPanel[hidden] {
+  display: none;
+}
+@media (min-width: 860px) {
+  .areaPanel {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.areaArt {
+  border: 1px solid var(--ashgrove-line);
+  border-radius: 999px 999px var(--radius-element) var(--radius-element);
+  overflow: hidden;
+  background: var(--ashgrove-stone);
+}
+.areaArt svg {
+  aspect-ratio: 400 / 300;
+}
+.areaTitle {
+  font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem);
+}
+.areaTraits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.areaTraits li {
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--ashgrove-rule);
+  border-radius: 999px;
+  font-size: var(--font-size-sm);
+}
+
+/* ---------- FAQ ---------- */
+.faqCard {
+  max-width: 52rem;
+  border: 1px solid var(--color-border);
+}
+.faqItem + .faqItem {
+  border-top: 1px solid var(--color-border);
+}
+.faqAnswer {
+  max-width: 44rem;
+}
+
+/* ---------- Viewing form ---------- */
+.viewingCard {
+  border: 1px solid var(--color-border);
+}
+.formHeading {
+  font-size: 1.625rem;
+}
+.smallHeading {
+  font-family: var(--font-family-body);
+  font-size: 1rem;
+  font-weight: 600;
+}
+.viewingGrid {
+  display: grid;
+  gap: var(--spacing-6) clamp(var(--spacing-6), 4vw, var(--spacing-10));
+}
+@media (min-width: 860px) {
+  .viewingGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.formError {
+  margin: 0;
+  padding: var(--spacing-3) var(--spacing-4);
+  border-inline-start: 3px solid var(--color-accent);
+  background: var(--color-accent-muted);
+  font-weight: 600;
+}
+
+/* ---------- Office ---------- */
+.officeGrid {
+  display: grid;
+  gap: var(--spacing-6);
+}
+@media (min-width: 900px) {
+  .officeGrid {
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
+  }
+}
+.officeCard {
+  border: 1px solid var(--color-border);
+}
+.address {
+  font-style: normal;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+.inlineLink {
+  color: var(--color-text-accent);
+  font-weight: 600;
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
+}
+.mapFigure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+.map {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--ashgrove-line);
+  border-radius: var(--radius-container);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: var(--ashgrove-charcoal);
+  color: #e9e1d6;
+  padding-block: clamp(3rem, 6vw, 4.5rem);
+}
+.footer a {
+  color: #f6f1ea;
+  text-underline-offset: 0.2em;
+}
+.footerNote a,
+.inlineLink {
+  text-decoration: underline;
+}
+.footer a:focus-visible {
+  outline-color: #e08a68;
+}
+.footerGrid {
+  display: grid;
+  gap: var(--spacing-8);
+}
+@media (min-width: 860px) {
+  .footerGrid {
+    grid-template-columns: 1.3fr 1fr 1fr;
+  }
+}
+.footerBrand p,
+.footerNote p {
+  margin: 0 0 var(--spacing-3);
+  max-width: 28rem;
+  line-height: 1.6;
+  color: #cfc5b8;
+}
+.footerWordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-4);
+}
+.footerWordmark .brandMark {
+  color: #e08a68;
+}
+.footerWordmark .brandSub {
+  color: #cfc5b8;
+}
+.footerNav ul {
+  display: grid;
+  gap: var(--spacing-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .listingCard,
+  .navLink,
+  .repayPrincipal {
+    transition: none;
+  }
+  .listingCard:hover {
+    transform: none;
+  }
+}

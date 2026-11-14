@@ -1,8 +1,8 @@
 # CraftLayer Studio industry demos
 
-Six fully working **concept websites** for fictional businesses, designed and engineered by [CraftLayer Studio](https://craftlayer-studio.github.io/) to show how we approach industry websites.
+Ten fully working **concept websites** for fictional businesses, designed and engineered by [CraftLayer Studio](https://craftlayer-studio.github.io/) to show how we approach industry websites.
 
-> **Concept demo disclaimer.** Forge Fitness, Juniper Kitchen, Northstar Clinic, Pulsegrid, Quillmark Academy and Halden & Rowe are fictional brands. They are not CraftLayer clients, they are not real businesses, and every person, address, phone number and price is invented. No bookings, orders, appointments, enquiries, sign-ups, payments or personal data are processed or sent anywhere. Every page shows a "Concept demo" notice.
+> **Concept demo disclaimer.** Forge Fitness, Juniper Kitchen, Northstar Clinic, Pulsegrid, Quillmark Academy, Halden & Rowe, Ashgrove Property, Fernlight Salon & Spa, Common Table and Brightwater Coffee are fictional brands. They are not CraftLayer clients, they are not real businesses, and every person, address, phone number and price is invented. No bookings, orders, appointments, enquiries, sign-ups, payments or personal data are processed or sent anywhere. Every page shows a "Concept demo" notice.
 
 | Demo | Industry | Live |
 |---|---|---|
@@ -12,6 +12,10 @@ Six fully working **concept websites** for fictional businesses, designed and en
 | **Pulsegrid** | Startups and SaaS | https://craftlayer-studio.github.io/industry-demos/saas/ |
 | **Quillmark Academy** | Education | https://craftlayer-studio.github.io/industry-demos/academy/ |
 | **Halden & Rowe** | Professional services | https://craftlayer-studio.github.io/industry-demos/advisory/ |
+| **Ashgrove Property** | Real estate | https://craftlayer-studio.github.io/industry-demos/real-estate/ |
+| **Fernlight Salon & Spa** | Beauty and wellness | https://craftlayer-studio.github.io/industry-demos/salon/ |
+| **Common Table** | Nonprofit | https://craftlayer-studio.github.io/industry-demos/nonprofit/ |
+| **Brightwater Coffee** | E-commerce and retail | https://craftlayer-studio.github.io/industry-demos/coffee/ |
 
 Index: https://craftlayer-studio.github.io/industry-demos/
 
@@ -24,6 +28,14 @@ Index: https://craftlayer-studio.github.io/industry-demos/
 | Pulsegrid | Quillmark Academy | Halden & Rowe |
 |---|---|---|
 | ![Pulsegrid hero](docs/screenshots/saas.png) | ![Quillmark Academy hero](docs/screenshots/academy.png) | ![Halden & Rowe hero](docs/screenshots/advisory.png) |
+
+| Ashgrove Property | Fernlight Salon & Spa |
+|---|---|
+| ![Ashgrove Property hero](docs/screenshots/real-estate.png) | ![Fernlight Salon & Spa hero](docs/screenshots/salon.png) |
+
+| Common Table | Brightwater Coffee |
+|---|---|
+| ![Common Table hero](docs/screenshots/nonprofit.png) | ![Brightwater Coffee hero](docs/screenshots/coffee.png) |
 
 ## Features
 
@@ -61,12 +73,32 @@ Index: https://craftlayer-studio.github.io/industry-demos/
 - Fee estimator with illustrative sample pricing, not a quote.
 - Fictional team, office with stylised map, FAQ and a multi-step consultation request.
 
-All six are responsive down to 320px, keyboard accessible, and respect `prefers-reduced-motion`.
+**Ashgrove Property** (`/real-estate/`): warm, architectural estate agency.
+- Hero search (buy/rent, area, price range, bedrooms) that filters and sorts nine fictional listings, with an empty state.
+- Listing dialog with an original front-elevation drawing and an illustrative floor plan.
+- Repayment estimator labelled illustrative, not financial advice; viewing request with weekday dates and time slots.
+
+**Fernlight Salon & Spa** (`/salon/`): soft-luxury salon and spa.
+- Tabbed service menu with durations and sample prices; specialist profiles with a filter.
+- Spa package comparison and a gift card builder with live preview (nothing is charged).
+- Multi-step appointment request: dates exclude Mondays and the specialist's days off, and time slots fit the service inside opening hours.
+
+**Common Table** (`/nonprofit/`): hopeful, poster-like community food network.
+- Programmes, and an illustrative "how a gift is used" chart with a data-table alternative. No impact statistics are claimed.
+- Donation form (one-off or monthly, preset or custom amount) where no payment is taken.
+- Volunteer shift sign-up with role and day filters, events and fictional pantry locations.
+
+**Brightwater Coffee** (`/coffee/`): dark, tactile coffee roaster shop.
+- Catalogue filtered by roast, process and tasting notes, with sorting and a product dialog.
+- Mock cart drawer with a free-shipping threshold and an honest demo checkout.
+- Subscription builder, brew guides with a ratio calculator, and a wholesale enquiry form.
+
+All ten are responsive down to 320px, keyboard accessible, and respect `prefers-reduced-motion`.
 
 ## Technology
 
 - Next.js 16.4.6 App Router, React 19.3, TypeScript 5, static export.
-- [Meta Astryx](https://github.com/meta/astryx) 0.7.13. Each demo has its own built theme (`src/themes/gym/forge`, `src/themes/restaurant/juniper`, `src/themes/clinic/northstar`, `src/themes/saas/pulsegrid`, `src/themes/academy/quillmark`, `src/themes/advisory/halden`) nested inside its route layout. See `docs/ASTRYX.md`.
+- [Meta Astryx](https://github.com/meta/astryx) 0.7.13. Each demo has its own built theme (`src/themes/gym/forge`, `src/themes/restaurant/juniper`, `src/themes/clinic/northstar`, `src/themes/saas/pulsegrid`, `src/themes/academy/quillmark`, `src/themes/advisory/halden`, `src/themes/real-estate/ashgrove`, `src/themes/salon/fernlight`, `src/themes/nonprofit/commontable`, `src/themes/coffee/brightwater`) nested inside its route layout. See `docs/ASTRYX.md`.
 - CSS Modules on top of Astryx tokens; fonts self-hosted at build time via `next/font`.
 - Vitest + Testing Library for filtering, pricing, cart, scheduling and validation logic.
 
@@ -74,7 +106,7 @@ All six are responsive down to 320px, keyboard accessible, and respect `prefers-
 
 ```text
 src/app/page.tsx              demos index
-src/app/{gym,restaurant,clinic,saas,academy,advisory}/   route layout (metadata, fonts, theme) + page
+src/app/<demo>/               route layout (metadata, fonts, theme) + page
 src/components/shell/         ConceptBar shown on every demo page
 src/components/<demo>/        components and pure logic modules with tests
 src/themes/<demo>/            Astryx theme sources and built output

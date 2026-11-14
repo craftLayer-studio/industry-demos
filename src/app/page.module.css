@@ -149,3 +149,13 @@
 .footer a {
   color: #3a50e0;
 }
+.realEstate { --bg: #efe7dc; --fg: #2b211b; --accent: #a4472a; }
+.salon { --bg: #f6e9ea; --fg: #3a1f2b; --accent: #7d2f55; }
+.nonprofit { --bg: #fbf1c7; --fg: #1d3324; --accent: #2f6b3a; }
+.coffee { --bg: #2a1c15; --fg: #f4e8da; --accent: #e3a35a; }
+/* A layered base style colours h2/p directly; inherit the card's --fg so dark cards stay readable. */
+.name,
+.industry,
+.summary {
+  color: inherit;
+}

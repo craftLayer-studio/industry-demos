@@ -573,7 +573,8 @@
   font-weight: 600;
   line-height: 1;
   color: transparent;
-  -webkit-text-stroke: 1px var(--color-border-emphasized);
+  /* Bright enough for 3:1 against the dark step card (large text). */
+  -webkit-text-stroke: 1px #8b8fd0;
 }
 .stepTitle {
   font-size: 1.25rem;
