@@ -1,6 +1,7 @@
 import type {Metadata} from 'next';
 import Link from 'next/link';
 import {demos} from '@/lib/demos';
+import {contactUrl, templateUrl} from '@/lib/links';
 import {REPO_URL, SITE_URL, STUDIO_URL} from '@/lib/paths';
 import styles from './page.module.css';
 
@@ -39,9 +40,14 @@ export default function DemosIndex() {
         <a href={STUDIO_URL} className={styles.studio}>
           CraftLayer Studio
         </a>
-        <a href={REPO_URL} className={styles.source}>
-          Source on GitHub
-        </a>
+        <nav aria-label="Studio" className={styles.nav}>
+          <a href={REPO_URL} className={styles.source}>
+            Source on GitHub
+          </a>
+          <a href={contactUrl('industry-demos')} className={styles.source}>
+            Start a project
+          </a>
+        </nav>
       </header>
 
       <section className={styles.intro} aria-labelledby="title">
@@ -57,7 +63,9 @@ export default function DemosIndex() {
       </section>
 
       <ul className={styles.grid}>
-        {demos.map((d, i) => (
+        {demos.map((d, i) => {
+          const template = templateUrl(d.slug);
+          return (
           <li key={d.slug} className={`${styles.card} ${accents[d.slug]}`}>
             <span className={styles.index}>{String(i + 1).padStart(2, '0')}</span>
             <span className={styles.badge}>Concept demo</span>
@@ -71,8 +79,14 @@ export default function DemosIndex() {
             <span className={styles.cta} aria-hidden="true">
               Open demo →
             </span>
+            {template ? (
+              <a href={template} className={styles.template}>
+                Get the animated template →<span className={styles.srOnly}> for {d.name}</span>
+              </a>
+            ) : null}
           </li>
-        ))}
+          );
+        })}
       </ul>
 
       <footer className={styles.footer}>

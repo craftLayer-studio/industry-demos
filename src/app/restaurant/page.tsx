@@ -9,7 +9,7 @@ import {SiteHeader} from '@/components/restaurant/SiteHeader';
 export default function RestaurantPage() {
   return (
     <>
-      <ConceptBar brand="Juniper Kitchen" />
+      <ConceptBar brand="Juniper Kitchen" slug="restaurant" />
       <CartProvider>
         <SiteHeader />
         <main id="main" tabIndex={-1}>

@@ -19,7 +19,7 @@ export default function SalonPage() {
       <a href="#main" className={styles.skipLink}>
         Skip to main content
       </a>
-      <ConceptBar brand="Fernlight Salon & Spa" />
+      <ConceptBar brand="Fernlight Salon & Spa" slug="salon" />
       <SalonHeader />
       <main id="main" tabIndex={-1}>
         <BookingBridgeProvider>

@@ -18,7 +18,7 @@ export default function RealEstatePage() {
       <a href="#main" className={styles.skipLink}>
         Skip to main content
       </a>
-      <ConceptBar brand="Ashgrove Property" />
+      <ConceptBar brand="Ashgrove Property" slug="real-estate" />
       <AshgroveHeader />
       <main id="main" tabIndex={-1}>
         <EstateProvider>

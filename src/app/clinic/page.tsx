@@ -17,7 +17,7 @@ export default function ClinicPage() {
       <a href="#main" className={styles.skipLink}>
         Skip to main content
       </a>
-      <ConceptBar brand="Northstar Clinic" />
+      <ConceptBar brand="Northstar Clinic" slug="clinic" />
       <ClinicHeader />
       <main id="main" tabIndex={-1}>
         <Hero />

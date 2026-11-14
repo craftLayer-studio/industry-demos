@@ -18,7 +18,7 @@ export default function AdvisoryPage() {
       <a href="#main" className={styles.skipLink}>
         Skip to main content
       </a>
-      <ConceptBar brand="Halden & Rowe" />
+      <ConceptBar brand="Halden & Rowe" slug="advisory" />
       <AdvisoryHeader />
       <main id="main" tabIndex={-1}>
         <Hero />

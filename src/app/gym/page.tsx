@@ -16,7 +16,7 @@ export default function GymPage() {
   return (
     <GymStateProvider>
       <SkipLink />
-      <ConceptBar brand="Forge Fitness" />
+      <ConceptBar brand="Forge Fitness" slug="gym" />
       <SiteHeader />
       <main id="main" tabIndex={-1}>
         <Hero />

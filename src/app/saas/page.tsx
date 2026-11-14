@@ -18,7 +18,7 @@ export default function SaasPage() {
       <a href="#main" className={styles.skipLink}>
         Skip to main content
       </a>
-      <ConceptBar brand="Pulsegrid" />
+      <ConceptBar brand="Pulsegrid" slug="saas" />
       <SiteHeader />
       <main id="main" tabIndex={-1}>
         <span id="top" />

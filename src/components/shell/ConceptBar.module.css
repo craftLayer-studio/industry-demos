@@ -22,8 +22,13 @@
   flex: 1 1 260px;
 }
 .text a,
-.back {
+.back,
+.template {
   color: #fff;
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+.template {
+  color: #8bddc0;
+  font-weight: 700;
 }

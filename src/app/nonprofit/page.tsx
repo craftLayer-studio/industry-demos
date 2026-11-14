@@ -18,7 +18,7 @@ export default function NonprofitPage() {
       <a href="#main" className={styles.skipLink}>
         Skip to main content
       </a>
-      <ConceptBar brand="Common Table" />
+      <ConceptBar brand="Common Table" slug="nonprofit" />
       <Header />
       <main id="main" tabIndex={-1}>
         <Hero />

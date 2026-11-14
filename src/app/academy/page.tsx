@@ -19,7 +19,7 @@ export default function AcademyPage() {
       <a href="#main" className={styles.skipLink}>
         Skip to main content
       </a>
-      <ConceptBar brand="Quillmark Academy" />
+      <ConceptBar brand="Quillmark Academy" slug="academy" />
       <AcademyHeader />
       <AcademyProvider>
         <main id="main" tabIndex={-1} className={styles.main}>

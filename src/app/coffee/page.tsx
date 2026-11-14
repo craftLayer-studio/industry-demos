@@ -19,7 +19,7 @@ export default function CoffeePage() {
       <a href="#main" className={styles.skipLink}>
         Skip to main content
       </a>
-      <ConceptBar brand="Brightwater Coffee" />
+      <ConceptBar brand="Brightwater Coffee" slug="coffee" />
       <SiteHeader />
       <main id="main" tabIndex={-1}>
         <span id="top" />
