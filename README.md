@@ -1,14 +1,17 @@
 # CraftLayer Studio industry demos
 
-Three fully working **concept websites** for fictional businesses, designed and engineered by [CraftLayer Studio](https://craftlayer-studio.github.io/) to show how we approach industry websites.
+Six fully working **concept websites** for fictional businesses, designed and engineered by [CraftLayer Studio](https://craftlayer-studio.github.io/) to show how we approach industry websites.
 
-> **Concept demo disclaimer.** Forge Fitness, Juniper Kitchen and Northstar Clinic are fictional brands. They are not CraftLayer clients, they are not real businesses, and every person, address, phone number and price is invented. No bookings, orders, appointments, payments or personal data are processed or sent anywhere. Every page shows a "Concept demo" notice.
+> **Concept demo disclaimer.** Forge Fitness, Juniper Kitchen, Northstar Clinic, Pulsegrid, Quillmark Academy and Halden & Rowe are fictional brands. They are not CraftLayer clients, they are not real businesses, and every person, address, phone number and price is invented. No bookings, orders, appointments, enquiries, sign-ups, payments or personal data are processed or sent anywhere. Every page shows a "Concept demo" notice.
 
 | Demo | Industry | Live |
 |---|---|---|
 | **Forge Fitness** | Gym and fitness | https://craftlayer-studio.github.io/industry-demos/gym/ |
 | **Juniper Kitchen** | Restaurant and hospitality | https://craftlayer-studio.github.io/industry-demos/restaurant/ |
 | **Northstar Clinic** | Healthcare | https://craftlayer-studio.github.io/industry-demos/clinic/ |
+| **Pulsegrid** | Startups and SaaS | https://craftlayer-studio.github.io/industry-demos/saas/ |
+| **Quillmark Academy** | Education | https://craftlayer-studio.github.io/industry-demos/academy/ |
+| **Halden & Rowe** | Professional services | https://craftlayer-studio.github.io/industry-demos/advisory/ |
 
 Index: https://craftlayer-studio.github.io/industry-demos/
 
@@ -17,6 +20,10 @@ Index: https://craftlayer-studio.github.io/industry-demos/
 | Forge Fitness | Juniper Kitchen | Northstar Clinic |
 |---|---|---|
 | ![Forge Fitness hero](docs/screenshots/gym.png) | ![Juniper Kitchen hero](docs/screenshots/restaurant.png) | ![Northstar Clinic hero](docs/screenshots/clinic.png) |
+
+| Pulsegrid | Quillmark Academy | Halden & Rowe |
+|---|---|---|
+| ![Pulsegrid hero](docs/screenshots/saas.png) | ![Quillmark Academy hero](docs/screenshots/academy.png) | ![Halden & Rowe hero](docs/screenshots/advisory.png) |
 
 ## Features
 
@@ -39,12 +46,27 @@ Index: https://craftlayer-studio.github.io/industry-demos/
 - Accessible multi-step appointment request: specialty, clinician, weekday date within 60 days, deterministic time slots, minimal contact details, review, demo confirmation. Focus moves to each step heading.
 - FAQ accordion, hours, stylised map, and a clear "not a real clinic" warning.
 
-All three are responsive down to 320px, keyboard accessible, and respect `prefers-reduced-motion`.
+**Pulsegrid** (`/saas/`): dark, product-led SaaS launch page.
+- Feature tour with tabs and an illustrative sample dashboard (sample data, labelled as such).
+- Pricing calculator and plan comparison table.
+- Integrations, security notes, FAQ and a validated waitlist form that sends nothing.
+
+**Quillmark Academy** (`/academy/`): warm, editorial online academy.
+- Searchable course catalogue with filters and a course detail dialog.
+- Learning paths, cohort calendar, fictional instructors and pricing.
+- Validated enrolment enquiry form with demo-only success state.
+
+**Halden & Rowe** (`/advisory/`): restrained accounting and advisory firm.
+- Practice areas, process, audiences and insights.
+- Fee estimator with illustrative sample pricing, not a quote.
+- Fictional team, office with stylised map, FAQ and a multi-step consultation request.
+
+All six are responsive down to 320px, keyboard accessible, and respect `prefers-reduced-motion`.
 
 ## Technology
 
 - Next.js 16.4.6 App Router, React 19.3, TypeScript 5, static export.
-- [Meta Astryx](https://github.com/meta/astryx) 0.7.13. Each demo has its own built theme (`src/themes/gym/forge`, `src/themes/restaurant/juniper`, `src/themes/clinic/northstar`) nested inside its route layout. See `docs/ASTRYX.md`.
+- [Meta Astryx](https://github.com/meta/astryx) 0.7.13. Each demo has its own built theme (`src/themes/gym/forge`, `src/themes/restaurant/juniper`, `src/themes/clinic/northstar`, `src/themes/saas/pulsegrid`, `src/themes/academy/quillmark`, `src/themes/advisory/halden`) nested inside its route layout. See `docs/ASTRYX.md`.
 - CSS Modules on top of Astryx tokens; fonts self-hosted at build time via `next/font`.
 - Vitest + Testing Library for filtering, pricing, cart, scheduling and validation logic.
 
@@ -52,10 +74,10 @@ All three are responsive down to 320px, keyboard accessible, and respect `prefer
 
 ```text
 src/app/page.tsx              demos index
-src/app/{gym,restaurant,clinic}/   route layout (metadata, fonts, theme) + page
+src/app/{gym,restaurant,clinic,saas,academy,advisory}/   route layout (metadata, fonts, theme) + page
 src/components/shell/         ConceptBar shown on every demo page
-src/components/{gym,restaurant,clinic}/   components and pure logic modules with tests
-src/themes/{gym,restaurant,clinic}/       Astryx theme sources and built output
+src/components/<demo>/        components and pure logic modules with tests
+src/themes/<demo>/            Astryx theme sources and built output
 src/lib/paths.ts              basePath helper for plain <img> and static links
 ```
 

@@ -7,11 +7,11 @@ import styles from './page.module.css';
 export const metadata: Metadata = {
   title: {absolute: 'Industry concept demos | CraftLayer Studio'},
   description:
-    'Three fictional concept websites by CraftLayer Studio: Forge Fitness (gym), Juniper Kitchen (restaurant) and Northstar Clinic (healthcare). Not real businesses.',
+    'Six fictional concept websites by CraftLayer Studio for fitness, hospitality, healthcare, SaaS, education and professional services. Not real businesses.',
   alternates: {canonical: `${SITE_URL}/`},
   openGraph: {
     title: 'Industry concept demos | CraftLayer Studio',
-    description: 'Three fictional, fully working concept websites for fitness, hospitality and healthcare.',
+    description: 'Six fictional, fully working concept websites across six industries.',
     url: `${SITE_URL}/`,
     siteName: 'CraftLayer Studio',
     type: 'website',
@@ -23,6 +23,9 @@ const accents: Record<string, string> = {
   gym: styles.gym,
   restaurant: styles.restaurant,
   clinic: styles.clinic,
+  saas: styles.saas,
+  academy: styles.academy,
+  advisory: styles.advisory,
 };
 
 export default function DemosIndex() {
@@ -40,7 +43,7 @@ export default function DemosIndex() {
       <section className={styles.intro} aria-labelledby="title">
         <p className={styles.eyebrow}>Concept demonstrations</p>
         <h1 id="title" className={styles.title}>
-          Three industries. Three distinct brands. One engineering standard.
+          Six industries. Six distinct brands. One engineering standard.
         </h1>
         <p className={styles.lede}>
           These are fictional businesses designed and built by CraftLayer Studio to show how we approach real
@@ -52,7 +55,7 @@ export default function DemosIndex() {
       <ul className={styles.grid}>
         {demos.map((d, i) => (
           <li key={d.slug} className={`${styles.card} ${accents[d.slug]}`}>
-            <span className={styles.index}>0{i + 1}</span>
+            <span className={styles.index}>{String(i + 1).padStart(2, '0')}</span>
             <span className={styles.badge}>Concept demo</span>
             <h2 className={styles.name}>
               <Link href={d.href} className={styles.link}>

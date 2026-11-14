@@ -83,6 +83,9 @@
 .gym { --bg: #0e0f0c; --fg: #f4f4ee; --accent: #d4ff3a; }
 .restaurant { --bg: #f1e8d8; --fg: #2b2a20; --accent: #8a3b1f; }
 .clinic { --bg: #e7f3f1; --fg: #0f2b33; --accent: #0b6e69; }
+.saas { --bg: #14122b; --fg: #f1efff; --accent: #a99bff; }
+.academy { --bg: #fbf3e4; --fg: #2a1d10; --accent: #9a4a12; }
+.advisory { --bg: #e9ecf2; --fg: #15202f; --accent: #2c4a7a; }
 .index {
   font: 600 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
   color: var(--accent);

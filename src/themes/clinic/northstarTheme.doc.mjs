@@ -1,5 +1,5 @@
 /** @type {import('@astryxdesign/cli/authoring').ThemeDoc} */
-const northstarThemeDoc = {
+export default {
   type: 'theme',
   name: 'clinic',
   displayName: 'Northstar Clinic',
@@ -7,4 +7,3 @@ const northstarThemeDoc = {
   maintained: false,
 };
 
-export default northstarThemeDoc;

@@ -4,10 +4,11 @@ import {Providers} from './providers';
 import {SITE_URL} from '@/lib/paths';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(SITE_URL + '/'),
+  // Origin only: relative metadata URLs in this app already include the basePath.
+  metadataBase: new URL('https://craftlayer-studio.github.io/'),
   title: {default: 'Industry demos | CraftLayer Studio', template: '%s | CraftLayer Studio concept demo'},
   description:
-    'Three fictional concept websites built by CraftLayer Studio: a gym, a restaurant and a clinic. Not real businesses.',
+    'Six fictional concept websites by CraftLayer Studio: gym, restaurant, clinic, SaaS, online academy and advisory firm. Not real businesses.',
   robots: {index: true, follow: true},
 };
 
