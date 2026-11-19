@@ -188,6 +188,10 @@
 .salon { --bg: #f6e9ea; --fg: #3a1f2b; --accent: #7d2f55; }
 .nonprofit { --bg: #fbf1c7; --fg: #1d3324; --accent: #2f6b3a; }
 .coffee { --bg: #2a1c15; --fg: #f4e8da; --accent: #e3a35a; }
+.legal { --bg: #14213d; --fg: #f3efe6; --accent: #c9a227; }
+.hotel { --bg: #dfe8e4; --fg: #1f3a3d; --accent: #8c4430; }
+.architecture { --bg: #f2f2ef; --fg: #111111; --accent: #b3261e; }
+.builders { --bg: #ffcf3f; --fg: #1b1b1b; --accent: #1b1b1b; }
 /* A layered base style colours h2/p directly; inherit the card's --fg so dark cards stay readable. */
 .name,
 .industry,

@@ -8,11 +8,11 @@ import styles from './page.module.css';
 export const metadata: Metadata = {
   title: {absolute: 'Industry concept demos | CraftLayer Studio'},
   description:
-    'Ten fictional concept websites by CraftLayer Studio for fitness, food, healthcare, SaaS, education, advisory, property, beauty, nonprofit and retail.',
+    'Fourteen fictional concept websites by CraftLayer Studio for fitness, food, healthcare, SaaS, education, advisory, property, beauty, nonprofit, retail, law, hotels, architecture and building.',
   alternates: {canonical: `${SITE_URL}/`},
   openGraph: {
     title: 'Industry concept demos | CraftLayer Studio',
-    description: 'Ten fictional, fully working concept websites across ten industries.',
+    description: 'Fourteen fictional, fully working concept websites across fourteen industries.',
     url: `${SITE_URL}/`,
     siteName: 'CraftLayer Studio',
     type: 'website',
@@ -31,6 +31,10 @@ const accents: Record<string, string> = {
   salon: styles.salon,
   nonprofit: styles.nonprofit,
   coffee: styles.coffee,
+  legal: styles.legal,
+  hotel: styles.hotel,
+  architecture: styles.architecture,
+  builders: styles.builders,
 };
 
 export default function DemosIndex() {
@@ -53,7 +57,7 @@ export default function DemosIndex() {
       <section className={styles.intro} aria-labelledby="title">
         <p className={styles.eyebrow}>Concept demonstrations</p>
         <h1 id="title" className={styles.title}>
-          Ten industries. Ten distinct brands. One engineering standard.
+          Fourteen industries. Fourteen distinct brands. One engineering standard.
         </h1>
         <p className={styles.lede}>
           These are fictional businesses designed and built by CraftLayer Studio to show how we approach real

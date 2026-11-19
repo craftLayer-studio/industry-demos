@@ -1,8 +1,8 @@
 # CraftLayer Studio industry demos
 
-Ten fully working **concept websites** for fictional businesses, designed and engineered by [CraftLayer Studio](https://craftlayer-studio.github.io/) to show how we approach industry websites.
+Fourteen fully working **concept websites** for fictional businesses, designed and engineered by [CraftLayer Studio](https://craftlayer-studio.github.io/) to show how we approach industry websites.
 
-> **Concept demo disclaimer.** Forge Fitness, Juniper Kitchen, Northstar Clinic, Pulsegrid, Quillmark Academy, Halden & Rowe, Ashgrove Property, Fernlight Salon & Spa, Common Table and Brightwater Coffee are fictional brands. They are not CraftLayer clients, they are not real businesses, and every person, address, phone number and price is invented. No bookings, orders, appointments, enquiries, sign-ups, payments or personal data are processed or sent anywhere. Every page shows a "Concept demo" notice.
+> **Concept demo disclaimer.** Forge Fitness, Juniper Kitchen, Northstar Clinic, Pulsegrid, Quillmark Academy, Halden & Rowe, Ashgrove Property, Fernlight Salon & Spa, Common Table, Brightwater Coffee, Marlowe & Pike, The Saltmarsh, Ostrander Studio and Keystone Build Co. are fictional brands. They are not CraftLayer clients, they are not real businesses, and every person, address, phone number and price is invented. No bookings, orders, appointments, enquiries, sign-ups, payments or personal data are processed or sent anywhere. Every page shows a "Concept demo" notice.
 
 | Demo | Industry | Live |
 |---|---|---|
@@ -16,6 +16,10 @@ Ten fully working **concept websites** for fictional businesses, designed and en
 | **Fernlight Salon & Spa** | Beauty and wellness | https://craftlayer-studio.github.io/industry-demos/salon/ |
 | **Common Table** | Nonprofit | https://craftlayer-studio.github.io/industry-demos/nonprofit/ |
 | **Brightwater Coffee** | E-commerce and retail | https://craftlayer-studio.github.io/industry-demos/coffee/ |
+| **Marlowe & Pike** | Legal services | https://craftlayer-studio.github.io/industry-demos/legal/ |
+| **The Saltmarsh** | Hospitality | https://craftlayer-studio.github.io/industry-demos/hotel/ |
+| **Ostrander Studio** | Architecture and interiors | https://craftlayer-studio.github.io/industry-demos/architecture/ |
+| **Keystone Build Co.** | Construction and trades | https://craftlayer-studio.github.io/industry-demos/builders/ |
 
 Index: https://craftlayer-studio.github.io/industry-demos/
 
@@ -36,6 +40,14 @@ Index: https://craftlayer-studio.github.io/industry-demos/
 | Common Table | Brightwater Coffee |
 |---|---|
 | ![Common Table hero](docs/screenshots/nonprofit.png) | ![Brightwater Coffee hero](docs/screenshots/coffee.png) |
+
+| Marlowe & Pike | The Saltmarsh |
+|---|---|
+| ![Marlowe & Pike hero](docs/screenshots/legal.png) | ![The Saltmarsh hero](docs/screenshots/hotel.png) |
+
+| Ostrander Studio | Keystone Build Co. |
+|---|---|
+| ![Ostrander Studio hero](docs/screenshots/architecture.png) | ![Keystone Build Co. hero](docs/screenshots/builders.png) |
 
 ## Features
 
@@ -93,12 +105,28 @@ Index: https://craftlayer-studio.github.io/industry-demos/
 - Mock cart drawer with a free-shipping threshold and an honest demo checkout.
 - Subscription builder, brew guides with a ratio calculator, and a wholesale enquiry form.
 
-All ten are responsive down to 320px, keyboard accessible, and respect `prefers-reduced-motion`.
+**Marlowe & Pike** (`/legal/`): dark navy and brass editorial law firm.
+- Practice area tabs, a fixed-fee conveyancing estimator with sample fees, VAT and disbursements.
+- Fictional solicitor profiles with no invented credentials, and a confidential enquiry form. Not legal advice.
+
+**The Saltmarsh** (`/hotel/`): airy sea-glass boutique coastal hotel.
+- Stay search, filterable rooms with a detail dialog, and a rate calculator with weekend uplift and minimum stays.
+- Dining and spa tabs, an illustrated area guide and a booking request where nothing is booked or charged.
+
+**Ostrander Studio** (`/architecture/`): stark grid-driven architecture practice.
+- Filterable archive of fictional projects drawn as SVG axonometrics, with a project dialog.
+- Design stage explainer, an illustrative fee guide and a five-step brief builder.
+
+**Keystone Build Co.** (`/builders/`): bold safety-yellow builders and renovators.
+- Service tabs, an extension cost estimator with sample ranges, and a process timeline.
+- Fictional sample projects, an FAQ and a site survey request form.
+
+All fourteen are responsive down to 320px, keyboard accessible, and respect `prefers-reduced-motion`.
 
 ## Technology
 
 - Next.js 16.4.6 App Router, React 19.3, TypeScript 5, static export.
-- [Meta Astryx](https://github.com/meta/astryx) 0.7.13. Each demo has its own built theme (`src/themes/gym/forge`, `src/themes/restaurant/juniper`, `src/themes/clinic/northstar`, `src/themes/saas/pulsegrid`, `src/themes/academy/quillmark`, `src/themes/advisory/halden`, `src/themes/real-estate/ashgrove`, `src/themes/salon/fernlight`, `src/themes/nonprofit/commontable`, `src/themes/coffee/brightwater`) nested inside its route layout. See `docs/ASTRYX.md`.
+- [Meta Astryx](https://github.com/meta/astryx) 0.7.13. Each demo has its own built theme (`src/themes/gym/forge`, `src/themes/restaurant/juniper`, `src/themes/clinic/northstar`, `src/themes/saas/pulsegrid`, `src/themes/academy/quillmark`, `src/themes/advisory/halden`, `src/themes/real-estate/ashgrove`, `src/themes/salon/fernlight`, `src/themes/nonprofit/commontable`, `src/themes/coffee/brightwater`, `src/themes/legal/marlowe`, `src/themes/hotel/saltmarsh`, `src/themes/architecture/ostrander`, `src/themes/builders/keystone`) nested inside its route layout. See `docs/ASTRYX.md`.
 - CSS Modules on top of Astryx tokens; fonts self-hosted at build time via `next/font`.
 - Vitest + Testing Library for filtering, pricing, cart, scheduling and validation logic.
 

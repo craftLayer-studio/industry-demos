@@ -69,6 +69,10 @@ jobs:
           test -f out/salon/index.html
           test -f out/nonprofit/index.html
           test -f out/coffee/index.html
+          test -f out/legal/index.html
+          test -f out/hotel/index.html
+          test -f out/architecture/index.html
+          test -f out/builders/index.html
           test -f out/sitemap.xml
           grep -q "/industry-demos/_next/static/" out/index.html
 

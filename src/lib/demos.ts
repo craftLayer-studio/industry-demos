@@ -1,5 +1,5 @@
 export type Demo = {
-  slug: 'gym' | 'restaurant' | 'clinic' | 'saas' | 'academy' | 'advisory' | 'real-estate' | 'salon' | 'nonprofit' | 'coffee';
+  slug: 'gym' | 'restaurant' | 'clinic' | 'saas' | 'academy' | 'advisory' | 'real-estate' | 'salon' | 'nonprofit' | 'coffee' | 'legal' | 'hotel' | 'architecture' | 'builders';
   name: string;
   industry: string;
   summary: string;
@@ -76,5 +76,33 @@ export const demos: Demo[] = [
     industry: 'E-commerce and retail',
     summary: 'Fictional coffee roaster store: filterable coffee shop, product dialog, a mock cart and a subscription builder.',
     href: '/coffee/',
+  },
+  {
+    slug: 'legal',
+    name: 'Marlowe & Pike',
+    industry: 'Legal services',
+    summary: 'Fictional law firm: practice areas, a fixed-fee conveyancing estimator, solicitor profiles and a confidential enquiry form.',
+    href: '/legal/',
+  },
+  {
+    slug: 'hotel',
+    name: 'The Saltmarsh',
+    industry: 'Hospitality',
+    summary: 'Fictional boutique coastal hotel: room collection, an availability and rate calculator, dining and a booking request.',
+    href: '/hotel/',
+  },
+  {
+    slug: 'architecture',
+    name: 'Ostrander Studio',
+    industry: 'Architecture and interiors',
+    summary: 'Fictional architecture practice: filterable project archive, project detail views, a fee stage explainer and a brief builder.',
+    href: '/architecture/',
+  },
+  {
+    slug: 'builders',
+    name: 'Keystone Build Co.',
+    industry: 'Construction and trades',
+    summary: 'Fictional builders and renovators: services, an extension cost estimator, process timeline and a site survey request.',
+    href: '/builders/',
   },
 ];
