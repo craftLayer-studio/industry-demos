@@ -73,6 +73,10 @@ jobs:
           test -f out/hotel/index.html
           test -f out/architecture/index.html
           test -f out/builders/index.html
+          test -f out/dental/index.html
+          test -f out/weddings/index.html
+          test -f out/automotive/index.html
+          test -f out/vet/index.html
           test -f out/sitemap.xml
           grep -q "/industry-demos/_next/static/" out/index.html
 

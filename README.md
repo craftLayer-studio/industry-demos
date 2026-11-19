@@ -1,8 +1,8 @@
 # CraftLayer Studio industry demos
 
-Fourteen fully working **concept websites** for fictional businesses, designed and engineered by [CraftLayer Studio](https://craftlayer-studio.github.io/) to show how we approach industry websites.
+Eighteen fully working **concept websites** for fictional businesses, designed and engineered by [CraftLayer Studio](https://craftlayer-studio.github.io/) to show how we approach industry websites.
 
-> **Concept demo disclaimer.** Forge Fitness, Juniper Kitchen, Northstar Clinic, Pulsegrid, Quillmark Academy, Halden & Rowe, Ashgrove Property, Fernlight Salon & Spa, Common Table, Brightwater Coffee, Marlowe & Pike, The Saltmarsh, Ostrander Studio and Keystone Build Co. are fictional brands. They are not CraftLayer clients, they are not real businesses, and every person, address, phone number and price is invented. No bookings, orders, appointments, enquiries, sign-ups, payments or personal data are processed or sent anywhere. Every page shows a "Concept demo" notice.
+> **Concept demo disclaimer.** Forge Fitness, Juniper Kitchen, Northstar Clinic, Pulsegrid, Quillmark Academy, Halden & Rowe, Ashgrove Property, Fernlight Salon & Spa, Common Table, Brightwater Coffee, Marlowe & Pike, The Saltmarsh, Ostrander Studio, Keystone Build Co., Arbour Dental, Hollin Barn, Torque & Co. Motors and Meadowlark Vets are fictional brands. They are not CraftLayer clients, they are not real businesses, and every person, address, phone number and price is invented. No bookings, orders, appointments, enquiries, sign-ups, payments or personal data are processed or sent anywhere. Every page shows a "Concept demo" notice.
 
 | Demo | Industry | Live |
 |---|---|---|
@@ -20,6 +20,10 @@ Fourteen fully working **concept websites** for fictional businesses, designed a
 | **The Saltmarsh** | Hospitality | https://craftlayer-studio.github.io/industry-demos/hotel/ |
 | **Ostrander Studio** | Architecture and interiors | https://craftlayer-studio.github.io/industry-demos/architecture/ |
 | **Keystone Build Co.** | Construction and trades | https://craftlayer-studio.github.io/industry-demos/builders/ |
+| **Arbour Dental** | Dental and aesthetics | https://craftlayer-studio.github.io/industry-demos/dental/ |
+| **Hollin Barn** | Weddings and events | https://craftlayer-studio.github.io/industry-demos/weddings/ |
+| **Torque & Co. Motors** | Automotive | https://craftlayer-studio.github.io/industry-demos/automotive/ |
+| **Meadowlark Vets** | Veterinary | https://craftlayer-studio.github.io/industry-demos/vet/ |
 
 Index: https://craftlayer-studio.github.io/industry-demos/
 
@@ -48,6 +52,14 @@ Index: https://craftlayer-studio.github.io/industry-demos/
 | Ostrander Studio | Keystone Build Co. |
 |---|---|
 | ![Ostrander Studio hero](docs/screenshots/architecture.png) | ![Keystone Build Co. hero](docs/screenshots/builders.png) |
+
+| Arbour Dental | Hollin Barn |
+|---|---|
+| ![Arbour Dental hero](docs/screenshots/dental.png) | ![Hollin Barn hero](docs/screenshots/weddings.png) |
+
+| Torque & Co. Motors | Meadowlark Vets |
+|---|---|
+| ![Torque & Co. Motors hero](docs/screenshots/automotive.png) | ![Meadowlark Vets hero](docs/screenshots/vet.png) |
 
 ## Features
 
@@ -121,12 +133,28 @@ Index: https://craftlayer-studio.github.io/industry-demos/
 - Service tabs, an extension cost estimator with sample ranges, and a process timeline.
 - Fictional sample projects, an FAQ and a site survey request form.
 
-All fourteen are responsive down to 320px, keyboard accessible, and respect `prefers-reduced-motion`.
+**Arbour Dental** (`/dental/`): calm ice-blue private dental and aesthetics practice.
+- Treatments with illustrative sample prices and a monthly payment estimator (not a credit offer).
+- New patient journey, a fictional team with no invented qualifications, and a consultation request.
+
+**Hollin Barn** (`/weddings/`): romantic linen, olive and gold countryside wedding venue.
+- Spaces and capacities, a package builder with illustrative pricing and a sample availability calendar.
+- Getting here, FAQ and a viewing request where nothing is booked.
+
+**Torque & Co. Motors** (`/automotive/`): dark graphite and orange independent garage.
+- UK-style plate field that picks a sample vehicle (no DVLA lookup), service tabs and a price estimator.
+- MOT reminder sign-up and a booking request; nothing is sent or stored.
+
+**Meadowlark Vets** (`/vet/`): friendly meadow-green veterinary practice.
+- Services by pet type, a health plan calculator and an "open now" indicator from fictional hours.
+- Emergency guidance without fake numbers, and an appointment request.
+
+All eighteen are responsive down to 320px, keyboard accessible, and respect `prefers-reduced-motion`.
 
 ## Technology
 
 - Next.js 16.4.6 App Router, React 19.3, TypeScript 5, static export.
-- [Meta Astryx](https://github.com/meta/astryx) 0.7.13. Each demo has its own built theme (`src/themes/gym/forge`, `src/themes/restaurant/juniper`, `src/themes/clinic/northstar`, `src/themes/saas/pulsegrid`, `src/themes/academy/quillmark`, `src/themes/advisory/halden`, `src/themes/real-estate/ashgrove`, `src/themes/salon/fernlight`, `src/themes/nonprofit/commontable`, `src/themes/coffee/brightwater`, `src/themes/legal/marlowe`, `src/themes/hotel/saltmarsh`, `src/themes/architecture/ostrander`, `src/themes/builders/keystone`) nested inside its route layout. See `docs/ASTRYX.md`.
+- [Meta Astryx](https://github.com/meta/astryx) 0.7.13. Each demo has its own built theme (`src/themes/gym/forge`, `src/themes/restaurant/juniper`, `src/themes/clinic/northstar`, `src/themes/saas/pulsegrid`, `src/themes/academy/quillmark`, `src/themes/advisory/halden`, `src/themes/real-estate/ashgrove`, `src/themes/salon/fernlight`, `src/themes/nonprofit/commontable`, `src/themes/coffee/brightwater`, `src/themes/legal/marlowe`, `src/themes/hotel/saltmarsh`, `src/themes/architecture/ostrander`, `src/themes/builders/keystone`, `src/themes/dental/arbour`, `src/themes/weddings/hollin`, `src/themes/automotive/torque`, `src/themes/vet/meadowlark`) nested inside its route layout. See `docs/ASTRYX.md`.
 - CSS Modules on top of Astryx tokens; fonts self-hosted at build time via `next/font`.
 - Vitest + Testing Library for filtering, pricing, cart, scheduling and validation logic.
 

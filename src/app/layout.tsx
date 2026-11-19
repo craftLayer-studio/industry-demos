@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://craftlayer-studio.github.io/'),
   title: {default: 'Industry demos | CraftLayer Studio', template: '%s | CraftLayer Studio concept demo'},
   description:
-    'Fourteen fictional concept websites by CraftLayer Studio, from gym and clinic to law firm, hotel, architects and builders. Not real businesses.',
+    'Eighteen fictional concept websites by CraftLayer Studio, from gym and clinic to law firm, hotel, dentist, wedding venue and vets. Not real businesses.',
   robots: {index: true, follow: true},
 };
 

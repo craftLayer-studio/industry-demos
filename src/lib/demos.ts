@@ -1,5 +1,5 @@
 export type Demo = {
-  slug: 'gym' | 'restaurant' | 'clinic' | 'saas' | 'academy' | 'advisory' | 'real-estate' | 'salon' | 'nonprofit' | 'coffee' | 'legal' | 'hotel' | 'architecture' | 'builders';
+  slug: 'gym' | 'restaurant' | 'clinic' | 'saas' | 'academy' | 'advisory' | 'real-estate' | 'salon' | 'nonprofit' | 'coffee' | 'legal' | 'hotel' | 'architecture' | 'builders' | 'dental' | 'weddings' | 'automotive' | 'vet';
   name: string;
   industry: string;
   summary: string;
@@ -104,5 +104,33 @@ export const demos: Demo[] = [
     industry: 'Construction and trades',
     summary: 'Fictional builders and renovators: services, an extension cost estimator, process timeline and a site survey request.',
     href: '/builders/',
+  },
+  {
+    slug: 'dental',
+    name: 'Arbour Dental',
+    industry: 'Dental and aesthetics',
+    summary: 'Fictional private dental practice: treatments with sample price ranges, a monthly payment estimator, the team and a consultation request.',
+    href: '/dental/',
+  },
+  {
+    slug: 'weddings',
+    name: 'Hollin Barn',
+    industry: 'Weddings and events',
+    summary: 'Fictional countryside wedding venue: spaces and capacities, a package builder with sample pricing, date availability and a viewing request.',
+    href: '/weddings/',
+  },
+  {
+    slug: 'automotive',
+    name: 'Torque & Co. Motors',
+    industry: 'Automotive',
+    summary: 'Fictional independent garage: service menu, a service price estimator by vehicle, MOT reminder sign-up and a booking request.',
+    href: '/automotive/',
+  },
+  {
+    slug: 'vet',
+    name: 'Meadowlark Vets',
+    industry: 'Veterinary',
+    summary: 'Fictional veterinary practice: services by pet type, a health plan calculator, opening hours and an appointment request.',
+    href: '/vet/',
   },
 ];
